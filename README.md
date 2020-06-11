@@ -1,6 +1,10 @@
 # Uber Clone
 This project is a simple UI clone of Uber App.
 
+## Expo CLI
+To run this app you need Expo CLI. To install it just type the following command:
+### `npm install -g expo-cli`
+
 ## Configuration
 For the app to work you will need to obtain an api key from google maps, routes and places following the steps in the link: https://developers.google.com/maps/documentation/javascript/get-api-key
 
