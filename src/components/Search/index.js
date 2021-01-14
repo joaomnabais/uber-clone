@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Platform } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
-export default class Search extends Component {
-  state = {
-    searchFocused: false,
-  }
+export default function Search({ onLocationSelected }) {
+  const [searchFocused, setSearchFocused] = useState(false);
 
-  render() {
-    const { searchFocused } = this.state;
-    const { onLocationSelected } = this.props;
-
-    return <GooglePlacesAutocomplete
+  return (
+    <GooglePlacesAutocomplete
       placeholder="Para onde?"
       placeholderTextColor="#333"
       onPress={onLocationSelected}
@@ -20,8 +15,8 @@ export default class Search extends Component {
         language: 'pt-PT'
       }}
       textInputProps={{
-        onFocus: () => this.setState({ searchFocused: true }),
-        onBlur: () => this.setState({ searchFocused: false }),
+        onFocus: () => setSearchFocused(true),
+        onBlur: () => setSearchFocused(false),
         autoCapitalize: "none",
         autoCorrect: false
       }}
@@ -84,5 +79,5 @@ export default class Search extends Component {
         },
       }}
     />
-  }
+  );
 }
